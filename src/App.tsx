@@ -1,12 +1,18 @@
 import Modal from './Components/UI/Modal/Modal.tsx';
 import { useState } from 'react';
+import Alert from './Components/UI/Alert/Alert.tsx';
 
 const App = () => {
 
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [showAlert, setShowAlert] = useState<boolean>(false)
 
   const closeModalWindow = () => {
     setShowModal(!showModal);
+  };
+
+  const closeAlert = () => {
+    setShowAlert(!showAlert);
   };
 
   return (
@@ -19,7 +25,17 @@ const App = () => {
         <p>This is modal content</p>
       </Modal>
       <button className="btn btn-primary m-4" onClick={() => setShowModal(!showModal)}>Open modal window</button>
+
+      <button className="btn btn-primary m-4" onClick={() => setShowAlert(!showAlert)}>Open alert window</button>
+      <Alert
+        show={showAlert}
+        type="warning"
+        onDismiss={closeAlert}
+      >
+        <p>This is a warning type alert</p>
+        </Alert>
     </>
+
   )
 };
 
