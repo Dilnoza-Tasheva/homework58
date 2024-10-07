@@ -31,12 +31,11 @@ const Alert: React.FC<Props> = ({show, onDismiss, children, type}) => {
         <div className="modal-dialog">
           <div className={`modal-content`}>
             <div className={`p-2 d-flex justify-content-between align-items-center alert-header ${setAlertClass()}`}>
-              {children}
+              <span className="flex-grow-1">{children}</span>
               {onDismiss && (
                 <button className="btn btn-sm btn-outline-none" onClick={onDismiss}>x</button>
               )}
             </div>
-
           </div>
         </div>
       </div>

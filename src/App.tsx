@@ -5,14 +5,14 @@ import Alert from './Components/UI/Alert/Alert.tsx';
 const App = () => {
 
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [showAlert, setShowAlert] = useState<boolean>(false)
+  const [showAlert, setShowAlert] = useState<boolean>(false);
 
   const closeModalWindow = () => {
     setShowModal(!showModal);
   };
 
   const closeAlert = () => {
-    setShowAlert(!showAlert);
+    setShowAlert(false);
   };
 
   return (
@@ -30,7 +30,8 @@ const App = () => {
       <Alert
         show={showAlert}
         type="warning"
-        onDismiss={closeAlert}
+        onDismiss={showAlert ? closeAlert : undefined}
+
       >
         <p>This is a warning type alert</p>
         </Alert>
